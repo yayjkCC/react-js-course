@@ -5,7 +5,7 @@ import {useSelector} from "react-redux"
 
 export default function Cart() {
   const itemsInCart = useSelector((state) => {
-    return state.value
+    return state.cart.value
   })
   
 

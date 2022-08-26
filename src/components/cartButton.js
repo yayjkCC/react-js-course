@@ -3,21 +3,31 @@ import { useDispatch, useSelector } from 'react-redux'
 import { decrement, increment } from '../appState/cartSlice'
 import Button from './button'
 
-export default function CartButton() {
+export default function CartButton({name, price}) {
   const dispatch = useDispatch()
-  const itemsInCart = useSelector(state => state.value)
+  const itemsInCart = useSelector(state => state.cart.value)
   
   return (
       itemsInCart === 0 ?
-      <Button onPress={() => {
-          dispatch(increment())
-          alert("item added successfully")
-        }
-      }>
-        Add item to cart
-      </Button>
+      <>
+        <div style={{dispaly: 'flex', flexDirection: 'column'}}>
+          <div>{name}</div>
+          <div>{price}</div>
+        </div>
+        <Button onPress={() => {
+            dispatch(increment())
+            alert("item added successfully")
+          }
+        }>
+          Add item to cart
+        </Button>
+      </>
       :
       <>
+        <div style={{display: 'flex', flexDirection: 'column'}}>
+          <div>{name}</div>
+          <div>{price}</div>
+        </div>
         <Button onPress={() => {
           dispatch(increment())
           alert("cart count increased successfully")
