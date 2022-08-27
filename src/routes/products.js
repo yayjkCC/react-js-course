@@ -8,12 +8,13 @@ import { fetchProducts } from '../appState/catalogSlice'
 export function Products() {
   const dispatch = useDispatch()
   const products = useSelector(state => state.catalog.products)
+  const firstProduct = products[0]
   const firstProductPrice = useMemo(() =>  {
-    return products[0] ? products[0].price: null
-  }, [products[0]])
+    return firstProduct ? firstProduct.price: null
+  }, [firstProduct])
   const firstProductName = useMemo(() =>  {
-    return products[0] ? products[0].name: null
-  }, [products[0]])
+    return firstProduct ? firstProduct.name: null
+  }, [firstProduct])
   
   useEffect(() => {
     dispatch(fetchProducts())  
