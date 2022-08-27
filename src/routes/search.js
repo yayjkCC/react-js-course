@@ -1,17 +1,13 @@
 import React from 'react'
-import NavigationBar from '../components/navigationBar'
-import Header from '../components/header'
-import CartButton from '../components/cartButton'
+import PageHeader from '../components/pageHeader'
+import Product from '../components/product'
 
 export default function Search() {
 
   return (
-    <div>
-      <NavigationBar />
-      <div style={{padding:"16px", display: "flex", flexDirection: "column"}}>
-        <Header>search</Header>
-        <CartButton />
-      </div>
-    </div>
+    <>
+      <PageHeader>Search</PageHeader>
+      <Product price={100} name="Oil"/>
+    </>
   )
 }
