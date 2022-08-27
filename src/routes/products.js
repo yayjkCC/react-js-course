@@ -9,10 +9,10 @@ export function Products() {
   const dispatch = useDispatch()
   const products = useSelector(state => state.catalog.products)
   const firstProductPrice = useMemo(() =>  {
-    return products[0] ? products[0][0].price: null
+    return products[0] ? products[0].price: null
   }, [products[0]])
   const firstProductName = useMemo(() =>  {
-    return products[0] ? products[0][0].name: null
+    return products[0] ? products[0].name: null
   }, [products[0]])
   
   useEffect(() => {

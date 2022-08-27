@@ -8,10 +8,10 @@ export const fetchProducts = createAsyncThunk(
   'catalog/fetchProducts',
   async () => {
     setTimeout(() => {}, 2000);
-    return `[{
+    return `{
       "name": "maggi",
       "price": 50
-    }]`
+    }`
   }
 )
 
