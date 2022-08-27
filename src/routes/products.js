@@ -1,32 +1,34 @@
-import React, { useEffect, useMemo } from 'react'
-import NavigationBar from '../components/navigationBar'
-import Header from '../components/header'
-import CartButton from '../components/cartButton'
+import React, { useEffect } from 'react'
+import Product from '../components/product'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProducts } from '../appState/catalogSlice'
+import Grid from '@mui/material/Grid';
+import PageHeader from '../components/pageHeader';
 
 export function Products() {
   const dispatch = useDispatch()
   const products = useSelector(state => state.catalog.products)
-  const firstProduct = products[0]
-  const firstProductPrice = useMemo(() =>  {
-    return firstProduct ? firstProduct.price: null
-  }, [firstProduct])
-  const firstProductName = useMemo(() =>  {
-    return firstProduct ? firstProduct.name: null
-  }, [firstProduct])
   
   useEffect(() => {
     dispatch(fetchProducts())  
   }, [dispatch])
 
   return (
-    <div>
-      <NavigationBar />
-      <div style={{padding:"16px", display: "flex", flexDirection: "column"}}>
-        <Header>products</Header>
-        <CartButton name={firstProductName} price={firstProductPrice}/>
-      </div>
-    </div>
+    <>
+      <PageHeader>Products</PageHeader>
+      <Grid container>
+        {products.map(product => {
+          if(product){
+            return (
+              <Grid item key={product.name}>
+                <Product name={product.name} price={product.price}/>
+              </Grid>
+            )
+          }
+
+          return null
+        })}
+      </Grid>
+    </>
   )
 }

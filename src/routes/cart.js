@@ -1,7 +1,6 @@
 import React from 'react'
-import NavigationBar from '../components/navigationBar'
-import Header from '../components/header'
 import {useSelector} from "react-redux"
+import PageHeader from '../components/pageHeader'
 
 export default function Cart() {
   const itemsInCart = useSelector((state) => {
@@ -10,12 +9,9 @@ export default function Cart() {
   
 
   return (
-    <div>
-      <NavigationBar />
-      <div style={{padding:"16px", display: "flex", flexDirection: "column"}}>
-        <Header>cart</Header>
-        Total items added to cart: {itemsInCart}
-      </div>
-    </div>
+    <>
+      <PageHeader>Cart</PageHeader>
+      Total items added to cart: {itemsInCart}
+    </>
   )
 }
