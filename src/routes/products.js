@@ -10,10 +10,10 @@ export function Products() {
   const products = useSelector(state => state.catalog.products)
   const firstProductPrice = useMemo(() =>  {
     return products[0] ? products[0][0].price: null
-  }, [products])
+  }, [products[0]])
   const firstProductName = useMemo(() =>  {
     return products[0] ? products[0][0].name: null
-  }, [products])
+  }, [products[0]])
   
   useEffect(() => {
     dispatch(fetchProducts())  
