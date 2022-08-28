@@ -1,5 +1,5 @@
 import React from 'react'
-import NavigationBar from '../components/navigationBar'
+import NavigationBar from './navigationBar'
 import Container from '@mui/material/Container';
 
 export default function AppLayout({children}) {

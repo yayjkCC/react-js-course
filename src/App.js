@@ -7,7 +7,9 @@ import { store } from './appState/store'
 import { Provider } from 'react-redux'
 import RCThemeProvider from "./theme"
 import { CssBaseline } from '@mui/material';
-import AppLayout from './components/appLayout';
+import {PrivateRoutes, AuthRoutes} from './components/privateRoutes';
+import Login from './routes/login';
+import Register from './routes/register';
 
 function App() {
   return (
@@ -15,13 +17,17 @@ function App() {
       <RCThemeProvider>
           <CssBaseline />
             <BrowserRouter>
-              <AppLayout>
-              <Routes>
-                <Route path="/" element={<Products />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/search" element={<Search />} />
-              </Routes>
-              </AppLayout>
+                <Routes>
+                  <Route element={<PrivateRoutes />}>
+                    <Route path="/" element={<Products />} />
+                    <Route path="/cart" element={<Cart />} />
+                    <Route path="/search" element={<Search />} />
+                  </Route>
+                  <Route element={<AuthRoutes />}>
+                    <Route path="/login" element={<Login />}/>
+                    <Route path="/register" element={<Register />}/>
+                  </Route>
+                </Routes>
             </BrowserRouter>
       </RCThemeProvider>
     </Provider>
