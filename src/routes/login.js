@@ -1,7 +1,7 @@
 import { Button, Card, CardActions, CardContent, TextField, Stack } from '@mui/material'
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { login } from '../appState/baseSlice';
+import { mockLogin } from '../appState/baseSlice';
 import StyledLink from '../components/styledLink';
 
 export default function Login() {
@@ -17,7 +17,7 @@ export default function Login() {
       </CardContent>
       <CardActions style={{justifyContent: "center"}}>
         <Stack>
-          <Button onClick={() => dispatch(login())} variant="contained" sx={{mb: 1}}>Login</Button>
+          <Button onClick={() => dispatch(mockLogin())} variant="contained" sx={{mb: 1}}>Login</Button>
           <StyledLink link="/register" color="secondary.main">Go to register</StyledLink>
         </Stack>
       </CardActions>
