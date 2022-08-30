@@ -29,5 +29,6 @@ function Register() {
 }
 
 Register.getLayout = AuthLayout
+Register.isProtected = false
 
 export default Register
