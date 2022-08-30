@@ -1,6 +1,6 @@
 import RCThemeProvider from "../theme/index"
 import {CssBaseline} from "@mui/material"
-import AppContainer from "../AppContainer"
+import AppContainer from "../components/AppContainer"
 import { Provider } from "react-redux"
 import {store} from "../appState/store"
 import Head from "next/head"
