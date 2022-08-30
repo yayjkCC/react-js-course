@@ -7,6 +7,8 @@ import Head from "next/head"
 
 export default function MyApp({Component, pageProps}) {
   const getLayout = Component.getLayout || ((page) => page)
+  const isProtected = Component.isProtected ?? true
+
   return (
     <>
       <Head>
@@ -16,7 +18,7 @@ export default function MyApp({Component, pageProps}) {
       <Provider store={store}>
         <RCThemeProvider>
             <CssBaseline />
-            <AppContainer>
+            <AppContainer isProtected={isProtected}>
               {getLayout(<Component {...pageProps}/>)}
             </AppContainer>
         </RCThemeProvider>

@@ -27,5 +27,6 @@ function Login() {
 }
 
 Login.getLayout = AuthLayout
+Login.isProtected = false
 
 export default Login
