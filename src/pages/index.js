@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchProducts } from '../appState/catalogSlice'
 import Grid from '@mui/material/Grid';
 import PageHeader from '../components/pageHeader';
+import AppLayout from '../components/appLayout';
 
-export function Products() {
+function Products() {
   const dispatch = useDispatch()
   const products = useSelector(state => state.catalog.products)
   
@@ -32,3 +33,7 @@ export function Products() {
     </>
   )
 }
+
+Products.getLayout = AppLayout
+
+export default Products

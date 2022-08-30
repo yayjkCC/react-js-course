@@ -1,10 +1,11 @@
 import { Button, Card, CardActions, CardContent, TextField, Stack } from '@mui/material'
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { login } from '../appState/baseSlice';
-import StyledLink from '../components/styledLink';
+import { login } from '../../appState/baseSlice';
+import AuthLayout from '../../components/authLayout';
+import StyledLink from '../../components/styledLink';
 
-export default function Register() {
+function Register() {
   const dispatch = useDispatch();
 
   return (
@@ -26,3 +27,7 @@ export default function Register() {
     </Card>
   )
 }
+
+Register.getLayout = AuthLayout
+
+export default Register

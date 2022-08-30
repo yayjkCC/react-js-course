@@ -1,10 +1,11 @@
 import { Button, Card, CardActions, CardContent, TextField, Stack } from '@mui/material'
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { mockLogin } from '../appState/baseSlice';
-import StyledLink from '../components/styledLink';
+import { mockLogin } from '../../appState/baseSlice';
+import StyledLink from '../../components/styledLink';
+import AuthLayout from '../../components/authLayout'
 
-export default function Login() {
+function Login() {
   const dispatch = useDispatch();
 
   return (
@@ -24,3 +25,7 @@ export default function Login() {
     </Card>
   )
 }
+
+Login.getLayout = AuthLayout
+
+export default Login

@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react'
-import { useLocation } from 'react-router-dom'
 import Grid from '@mui/material/Grid';
 import { Box, Typography } from '@mui/material';
 import { Container } from '@mui/system';
@@ -28,8 +27,9 @@ export default function NavigationBar() {
 }
 
 const NavigationItem = ({link, children}) => {
-  const location = useLocation();
-  const isActive = useMemo(() => link === location.pathname, [link, location.pathname])
+  // const location = useLocation();
+  // const isActive = useMemo(() => link === location.pathname, [link, location.pathname])
+  const isActive = false
   const style = useMemo(() => isActive ? {fontWeight: 'bold'} : undefined, [isActive])
   const color = useMemo(() => isActive ? 'primary.main' : 'text.secondary', [isActive])
 
