@@ -10,6 +10,13 @@ const setIsAuthorized = (isAuthorized) => {
     localStorage.setItem("isAuthorized", isAuthorized)
 }
 
+const getIsAuthorized = () => {
+    const ls = localStorage.getItem("isAuthorized")
+    if(ls === "false") return false
+    else if(ls === "true") return true
+    return false
+}
+
 const onLogin = (accessToken, refreshToken, isAuthorized) => {
     setToken(accessToken)
     setIsAuthorized(isAuthorized)
@@ -42,5 +49,6 @@ export {
     setToken,
     onLogout,
     clearRefreshToken,
-    setRefreshToken
+    setRefreshToken,
+    getIsAuthorized
 }

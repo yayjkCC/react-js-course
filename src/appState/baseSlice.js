@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { onLogin, onLogout } from '../utils/authTokenManager';
+import { getIsAuthorized, onLogin, onLogout } from '../utils/authTokenManager';
 
 const initialState = {
-  isAuthorized: true,
+  isAuthorized: null,
 }
 
 export const mockLogin = createAsyncThunk(
@@ -28,8 +28,7 @@ export const baseSlice = createSlice({
         state.isAuthorized = false
     },
     checkIfLoggedIn: (state) => {
-      const isAuthorized = localStorage.getItem("isAuthorized")
-      state.isAuthorized = isAuthorized
+      state.isAuthorized = getIsAuthorized()
     }
   },
   extraReducers: (builder) => {
