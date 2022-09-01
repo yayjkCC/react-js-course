@@ -25,7 +25,8 @@ export default function AppContainer({children, isProtected}){
         if(isProtected && !isAuthorized){
           router.replace('/login')
         }else if(!isProtected && isAuthorized){
-          router.back()
+          if(router.pathname === "/login" || router.pathname === "/register") router.replace('/') 
+          else router.back()
         }
         
         //finishing route check if re-routing has not taken place(user trying to access authorized page)
