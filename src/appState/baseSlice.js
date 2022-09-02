@@ -8,7 +8,20 @@ const initialState = {
 export const mockLogin = createAsyncThunk(
   'base/logIn',
   async () => {
-    setTimeout(() => {}, 2000);
+    const req = {
+      "user":{
+          "email":"pk@gmail.com",
+          "password":"XyZ@1998"
+      }
+    }
+  
+    try{
+      const response = await axios.post("https://floating-falls-55336.herokuapp.com/users/sign_in", req)
+      console.log(response)
+    }catch(e){
+      console.log({e})
+    }
+    
     return `{
       "accessToken": "1234",
       "refreshToken": "5679"
