@@ -1,0 +1,66 @@
+@import 'variables';
+@import 'mixins';
+
+body {
+    background-color:  $primary-color;
+
+    a{
+        color: bisque;
+    }
+
+    #example1{
+        width: 100px;
+        height: 100px;
+        @include centered;
+        border: 1px solid red;
+        margin-top: 2px;
+    }
+
+    #example2 {
+        @extend #example1;
+        border-color: pink;
+        margin-top: 8px;
+        margin-bottom: 4px;
+    }
+
+    #example3{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2px;
+
+       .e3i{
+            border: 1px solid black;
+       }
+
+       #gi1 {
+            height: 55px;
+       }
+    }
+
+    #example4{
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+
+        .e4i{
+            border: 1px solid yellowgreen;
+            margin-right: 1px;
+            margin-left: 1px;
+        }
+
+        #fi1{
+            height: 44px;
+            order: 2;
+        }
+
+        #fi2 {
+            height: 22px;
+            order: 1;
+        }
+
+        #fi3{
+            height: 66px;
+            order: 4;
+        }
+    }
+}

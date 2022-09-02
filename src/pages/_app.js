@@ -4,6 +4,7 @@ import AppContainer from "../components/AppContainer"
 import { Provider } from "react-redux"
 import {store} from "../appState/store"
 import Head from "next/head"
+import '../styles/index.scss'
 
 export default function MyApp({Component, pageProps}) {
   const getLayout = Component.getLayout || ((page) => page)
