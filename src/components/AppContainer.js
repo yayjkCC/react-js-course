@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { checkIfLoggedIn } from "../appState/baseSlice";
 import { useRouter } from "next/router"
@@ -15,18 +15,28 @@ export default function AppContainer({children, isProtected}){
         dispatch(checkIfLoggedIn())
     }, [dispatch])
 
+
+    useEffect(() => {
+      if(routeCheckFinished){
+        localStorage.setItem('lastVisitedRoute', router.route)
+      }
+    }, [routeCheckFinished, router])
+
     useEffect(() => {
       if(isAuthorized != null){
         //resetting states before route access check
         setIsRouteCheckFinished(false)
         setIsUnhandled(true)
+        const lastRoute = localStorage.getItem('lastVisitedRoute')
 
         //re routing users if they are trying to access unauthorized page
         if(isProtected && !isAuthorized){
           router.replace('/login')
         }else if(!isProtected && isAuthorized){
-          if(router.pathname === "/login" || router.pathname === "/register") router.replace('/') 
-          else router.back()
+          if(lastRoute === '/login') router.replace('/')
+          else{
+            router.replace(lastRoute)
+          } 
         }
         
         //finishing route check if re-routing has not taken place(user trying to access authorized page)
