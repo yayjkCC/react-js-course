@@ -1,11 +1,11 @@
 import { Button, Card, CardActions, CardContent, TextField, Stack } from '@mui/material'
-import React from 'react'
 import { mockLogin } from '../../appState/baseSlice';
 import StyledLink from '../../components/StyledLink';
 import AuthLayout from '../../components/AuthLayout'
 import { useAppDispatch } from '../../appState/store';
+import { NextComponent } from '../_app';
 
-function Login() {
+const Login: NextComponent = () => {
   const dispatch = useAppDispatch();
 
   return (

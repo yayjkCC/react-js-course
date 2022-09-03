@@ -1,12 +1,18 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { checkIfLoggedIn } from "../appState/baseSlice";
 import { useRouter } from "next/router"
 import Loading from "./Loading";
+import { RootState } from "../appState/store";
 
-export default function AppContainer({children, isProtected}){
+type Props = {
+  isProtected: boolean,
+  children: JSX.Element
+}
+
+export default function AppContainer({children, isProtected}: Props){
     const dispatch = useDispatch()
-    const isAuthorized = useSelector((state: any) => state.base.isAuthorized)
+    const isAuthorized = useSelector((state: RootState) => state.base.isAuthorized)
     const router = useRouter()
     const [isUnHandled, setIsUnhandled] = useState(true)
     const [routeCheckFinished, setIsRouteCheckFinished] = useState(false)

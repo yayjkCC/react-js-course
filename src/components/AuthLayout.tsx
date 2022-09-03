@@ -1,8 +1,7 @@
-import React from 'react'
 import Container from '@mui/material/Container';
 import { Box } from '@mui/material';
 
-export default function AuthLayout(page) {
+export default function AuthLayout(page: JSX.Element) {
   return (
     <>
       <Container fixed>

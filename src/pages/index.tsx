@@ -5,11 +5,11 @@ import { fetchProducts } from '../appState/catalogSlice'
 import Grid from '@mui/material/Grid';
 import PageHeader from '../components/PageHeader';
 import AppLayout from '../components/AppLayout';
-import { useAppDispatch } from '../appState/store';
+import { RootState, useAppDispatch } from '../appState/store';
 
 function Products() {
   const dispatch = useAppDispatch()
-  const products = useSelector((state: any) => state.catalog.products)
+  const products = useSelector((state: RootState) => state.catalog.products)
   
   useEffect(() => {
     dispatch(fetchProducts())  
@@ -30,7 +30,6 @@ function Products() {
 
           return null
         })}
-        <a href="https://www.google.com">go</a>
       </Grid>
     </>
   )

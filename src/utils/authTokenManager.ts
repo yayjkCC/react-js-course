@@ -1,13 +1,13 @@
-const setToken = (accessToken) => {
+const setToken = (accessToken: string) => {
     localStorage.setItem("accessToken", accessToken)
 }
 
-const setRefreshToken = (refreshToken) => {
+const setRefreshToken = (refreshToken: string) => {
     localStorage.setItem("refreshToken", refreshToken)
 }
 
-const setIsAuthorized = (isAuthorized) => {
-    localStorage.setItem("isAuthorized", isAuthorized)
+const setIsAuthorized = (isAuthorized: boolean) => {
+    localStorage.setItem("isAuthorized", isAuthorized.toString())
 }
 
 const getIsAuthorized = () => {
@@ -17,7 +17,7 @@ const getIsAuthorized = () => {
     return false
 }
 
-const onLogin = (accessToken, refreshToken, isAuthorized) => {
+const onLogin = (accessToken: string, refreshToken: string, isAuthorized: boolean) => {
     setToken(accessToken)
     setIsAuthorized(isAuthorized)
     setRefreshToken(refreshToken)

@@ -1,8 +1,7 @@
-import React from 'react'
 import NavigationBar from './NavigationBar'
 import Container from '@mui/material/Container';
 
-export default function AppLayout(page) {
+export default function AppLayout(page: JSX.Element) {
   return (
     <>
       <NavigationBar />

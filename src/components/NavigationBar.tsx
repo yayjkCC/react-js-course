@@ -1,10 +1,11 @@
-import React, { useMemo } from 'react'
+import React, { FC, useMemo } from 'react'
 import Grid from '@mui/material/Grid';
 import { Box, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import {useDispatch} from "react-redux";
 import {logout} from "../appState/baseSlice";
 import StyledLink from './StyledLink';
+import { ReactFCProps } from '../sharedTypes';
 
 export default function NavigationBar() {
   const dispatch = useDispatch();
@@ -26,11 +27,15 @@ export default function NavigationBar() {
   )
 }
 
-const NavigationItem = ({link, children}) => {
+type Props = {
+  link: string 
+} & ReactFCProps
+ 
+const NavigationItem = ({link, children}: Props) => {
   // const location = useLocation();
   // const isActive = useMemo(() => link === location.pathname, [link, location.pathname])
   const isActive = false
-  const style = useMemo(() => isActive ? {fontWeight: 'bold'} : undefined, [isActive])
+  const style = useMemo(() => isActive ? {fontWeight: 'bold'} : {}, [isActive])
   const color = useMemo(() => isActive ? 'primary.main' : 'text.secondary', [isActive])
 
   return (

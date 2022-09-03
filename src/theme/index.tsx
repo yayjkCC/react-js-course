@@ -1,5 +1,5 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import React from "react"
+import { ReactFCProps } from "../sharedTypes";
 
 const theme = createTheme({
     palette: {
@@ -20,7 +20,7 @@ const theme = createTheme({
     }
 })
 
-export default function RCThemeProvider({children}) {
+export default function RCThemeProvider({children}: ReactFCProps) {
     return (
         <ThemeProvider theme={theme}>
             {children}

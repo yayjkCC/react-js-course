@@ -4,9 +4,21 @@ import AppContainer from "../components/AppContainer"
 import { Provider } from "react-redux"
 import {store} from "../appState/store"
 import Head from "next/head"
-import React from "react"
+import { NextPage } from "next"
 
-export default function MyApp({Component, pageProps}) {
+type CustomProperties =  {
+  getLayout: (page: JSX.Element) => JSX.Element,
+  isProtected?: boolean,
+}
+
+export type NextComponent<P = {}> = NextPage<P> & CustomProperties
+
+type Props = {
+  Component: NextComponent
+  pageProps: {[key: string]: any}
+}
+
+export default function MyApp({Component, pageProps}: Props) {
   const getLayout = Component.getLayout || ((page) => page)
   const isProtected = Component.isProtected ?? true
 
@@ -14,7 +26,7 @@ export default function MyApp({Component, pageProps}) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>React App</title>
+        <title>React Course</title>
       </Head>
       <Provider store={store}>
         <RCThemeProvider>

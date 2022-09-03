@@ -1,10 +1,11 @@
-import React from 'react'
 import {useSelector} from "react-redux"
+import { RootState } from '../../appState/store'
 import AppLayout from '../../components/AppLayout'
 import PageHeader from '../../components/PageHeader'
+import { NextComponent } from '../_app'
 
-function Cart() {
-  const itemsInCart = useSelector((state: any) => {
+const Cart: NextComponent = () => {
+  const itemsInCart = useSelector((state: RootState) => {
     return state.cart.value
   })
   

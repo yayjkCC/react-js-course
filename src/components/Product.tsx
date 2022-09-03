@@ -8,10 +8,17 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import Card from '@mui/material/Card';
 import { CardActions, CardContent } from '@mui/material';
 import Typography from '@mui/material/Typography';
+import { RootState } from '../appState/store';
+import { ReactFCProps } from '../sharedTypes';
 
-export default function Product({name, price}) {
+type Props = {
+  name: string,
+  price: string
+} & ReactFCProps
+
+export default function Product({name, price}: Props) {
   const dispatch = useDispatch()
-  const itemsInCart = useSelector((state: any) => state.cart.value)
+  const itemsInCart = useSelector((state: RootState) => state.cart.value)
 
   const renderButton = useCallback(() => {
       return itemsInCart === 0 ? <Button variant='contained' onClick={() => dispatch(increment())}>Add item to cart</Button> :
