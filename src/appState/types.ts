@@ -1,9 +1,9 @@
 type BaseState = {
-    isAuthorized: boolean | null
-}
+    isAuthorized: boolean | null;
+};
 
 type CatalogState = {
-    products: Array<any>
-}
+    products: Array<any>;
+};
 
-export {BaseState, CatalogState}
+export { BaseState, CatalogState };

@@ -1,32 +1,59 @@
-import { Button, Card, CardActions, CardContent, TextField, Stack } from '@mui/material'
+import {
+    Button,
+    Card,
+    CardActions,
+    CardContent,
+    TextField,
+    Stack,
+} from '@mui/material';
 import { mockLogin } from '../../appState/baseSlice';
 import StyledLink from '../../components/StyledLink';
-import AuthLayout from '../../components/AuthLayout'
+import AuthLayout from '../../components/AuthLayout';
 import { useAppDispatch } from '../../appState/store';
 import { NextComponent } from '../_app';
 
 const Login: NextComponent = () => {
-  const dispatch = useAppDispatch();
+    const dispatch = useAppDispatch();
 
-  return (
-    <Card>
-      <CardContent>
-        <Stack>
-          <TextField label="Username" variant="outlined" sx={{mb: 2}}/>
-          <TextField label="Password" variant="outlined" type="password"/>
-        </Stack>
-      </CardContent>
-      <CardActions style={{justifyContent: "center"}}>
-        <Stack>
-          <Button onClick={() => dispatch(mockLogin())} variant="contained" sx={{mb: 1}}>Login</Button>
-          <StyledLink link="/register" color="secondary.main" style={{}}>Go to register</StyledLink>
-        </Stack>
-      </CardActions>
-    </Card>
-  )
-}
+    return (
+        <Card>
+            <CardContent>
+                <Stack>
+                    <TextField
+                        label="Username"
+                        variant="outlined"
+                        sx={{ mb: 2 }}
+                    />
+                    <TextField
+                        label="Password"
+                        variant="outlined"
+                        type="password"
+                    />
+                </Stack>
+            </CardContent>
+            <CardActions style={{ justifyContent: 'center' }}>
+                <Stack>
+                    <Button
+                        onClick={() => dispatch(mockLogin())}
+                        variant="contained"
+                        sx={{ mb: 1 }}
+                    >
+                        Login
+                    </Button>
+                    <StyledLink
+                        link="/register"
+                        color="secondary.main"
+                        style={{}}
+                    >
+                        Go to register
+                    </StyledLink>
+                </Stack>
+            </CardActions>
+        </Card>
+    );
+};
 
-Login.getLayout = AuthLayout
-Login.isProtected = false
+Login.getLayout = AuthLayout;
+Login.isProtected = false;
 
-export default Login
+export default Login;
