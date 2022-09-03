@@ -6,8 +6,8 @@ import Loading from './Loading';
 import { RootState } from '../appState/store';
 
 type Props = {
-    isProtected: boolean
-    children: JSX.Element
+    isProtected: boolean;
+    children: JSX.Element;
 };
 
 export default function AppContainer({ children, isProtected }: Props) {
