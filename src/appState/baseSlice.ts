@@ -11,8 +11,8 @@ export const mockLogin = createAsyncThunk('base/logIn', async () => {
     return `{
       "accessToken": "1234",
       "refreshToken": "5679"
-    }`
-})
+    }`;
+});
 
 export const baseSlice = createSlice({
     name: 'base',
