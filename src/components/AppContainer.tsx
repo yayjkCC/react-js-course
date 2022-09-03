@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { checkIfLoggedIn } from "../appState/baseSlice";
 import { useRouter } from "next/router"
@@ -6,7 +6,7 @@ import Loading from "./Loading";
 
 export default function AppContainer({children, isProtected}){
     const dispatch = useDispatch()
-    const isAuthorized = useSelector(state => state.base.isAuthorized)
+    const isAuthorized = useSelector((state: any) => state.base.isAuthorized)
     const router = useRouter()
     const [isUnHandled, setIsUnhandled] = useState(true)
     const [routeCheckFinished, setIsRouteCheckFinished] = useState(false)
@@ -34,7 +34,7 @@ export default function AppContainer({children, isProtected}){
           router.replace('/login')
         }else if(!isProtected && isAuthorized){
           if(lastRoute === '/login') router.replace('/')
-          else{
+          else if(lastRoute !== null){
             router.replace(lastRoute)
           } 
         }

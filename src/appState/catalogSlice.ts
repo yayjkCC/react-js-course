@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { CatalogState } from './types';
 
-const initialState = {
+const initialState: CatalogState = {
   products: [],
 }
 
@@ -20,7 +21,7 @@ export const catalogSlice = createSlice({
   initialState,
   reducers: {
     setProducts: (state, products) => {
-      state.products = products
+      state.products = products.payload
     }
   },
   extraReducers: (builder) => {

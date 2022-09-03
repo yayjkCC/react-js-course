@@ -1,7 +1,7 @@
 import React from 'react'
-import AppLayout from '../../components/appLayout'
-import PageHeader from '../../components/pageHeader'
-import Product from '../../components/product'
+import AppLayout from '../../components/AppLayout'
+import PageHeader from '../../components/PageHeader'
+import Product from '../../components/Product'
 
 function Search() {
 

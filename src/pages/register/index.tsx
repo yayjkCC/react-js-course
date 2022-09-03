@@ -1,12 +1,12 @@
 import { Button, Card, CardActions, CardContent, TextField, Stack } from '@mui/material'
 import React from 'react'
-import { useDispatch } from 'react-redux'
 import { login } from '../../appState/baseSlice';
-import AuthLayout from '../../components/authLayout';
-import StyledLink from '../../components/styledLink';
+import { useAppDispatch } from '../../appState/store';
+import AuthLayout from '../../components/AuthLayout';
+import StyledLink from '../../components/StyledLink';
 
 function Register() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <Card>

@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 
 export default function Product({name, price}) {
   const dispatch = useDispatch()
-  const itemsInCart = useSelector(state => state.cart.value)
+  const itemsInCart = useSelector((state: any) => state.cart.value)
 
   const renderButton = useCallback(() => {
       return itemsInCart === 0 ? <Button variant='contained' onClick={() => dispatch(increment())}>Add item to cart</Button> :

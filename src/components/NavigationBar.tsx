@@ -4,7 +4,7 @@ import { Box, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import {useDispatch} from "react-redux";
 import {logout} from "../appState/baseSlice";
-import StyledLink from './styledLink';
+import StyledLink from './StyledLink';
 
 export default function NavigationBar() {
   const dispatch = useDispatch();

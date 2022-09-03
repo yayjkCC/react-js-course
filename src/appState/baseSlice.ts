@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { getIsAuthorized, onLogin, onLogout } from '../utils/authTokenManager';
+import { BaseState } from './types';
 
-const initialState = {
+const initialState: BaseState = {
   isAuthorized: null,
 }
 
